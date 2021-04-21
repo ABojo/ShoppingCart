@@ -1,7 +1,7 @@
 import styles from '../styles/navStyles.css';
 
 function Navbar(props) {
-  const { cartCount } = props;
+  const { cartCount, showCartSidebar } = props;
   return (
     <div className="navbar">
       <h1 className="nav-heading">Shop Name</h1>
@@ -15,7 +15,7 @@ function Navbar(props) {
         <h1 className="nav-item">
           <i className="fas fa-user  nav-item__icon"></i>About
         </h1>
-        <h1 className="nav-cart">
+        <h1 className="nav-cart" onClick={showCartSidebar}>
           <p className="nav-cart__count">{cartCount}</p>
           <i className="fas fa-shopping-cart"></i>
         </h1>
