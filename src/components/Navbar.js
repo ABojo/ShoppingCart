@@ -1,6 +1,7 @@
 import styles from '../styles/navStyles.css';
 
-function Navbar() {
+function Navbar(props) {
+  const { cartCount } = props;
   return (
     <div className="navbar">
       <h1 className="nav-heading">Shop Name</h1>
@@ -15,7 +16,7 @@ function Navbar() {
           <i className="fas fa-user  nav-item__icon"></i>About
         </h1>
         <h1 className="nav-cart">
-          <p className="nav-cart__count">0</p>
+          <p className="nav-cart__count">{cartCount}</p>
           <i className="fas fa-shopping-cart"></i>
         </h1>
       </div>
