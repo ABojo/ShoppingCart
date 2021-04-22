@@ -1,5 +1,3 @@
-import styles from '../styles/homeStyles.css';
-
 const textStyles = {
   fontSize: '3rem',
   fontWeight: '300',
