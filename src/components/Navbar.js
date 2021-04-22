@@ -21,12 +21,6 @@ function Navbar(props) {
           </h1>
         </Link>
 
-        <Link to="/about" style={linkStyles}>
-          <h1 className="nav-item">
-            <i className="fas fa-user  nav-item__icon"></i>About
-          </h1>
-        </Link>
-
         <h1 className="nav-cart" onClick={showCartSidebar}>
           {cartCount ? <p className="nav-cart__count">{cartCount}</p> : ''}
           <i className="fas fa-shopping-cart"></i>
