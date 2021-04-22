@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styles from './styles/baseStyles.css';
+import Home from './components/Home';
+import Shop from './components/Shop';
 import Navbar from './components/Navbar';
 import CartSidebar from './components/CartSidebar';
 
@@ -21,6 +24,12 @@ function App() {
         <CartSidebar hideCartSidebar={hideCartSidebar} />
       ) : null}
       <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/shop" component={Shop} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </BrowserRouter>
     </React.Fragment>
   );
 }
