@@ -20,11 +20,11 @@ function App() {
 
   return (
     <React.Fragment>
-      {cartSidebarShown ? (
-        <CartSidebar hideCartSidebar={hideCartSidebar} />
-      ) : null}
-      <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
       <BrowserRouter>
+        {cartSidebarShown ? (
+          <CartSidebar hideCartSidebar={hideCartSidebar} />
+        ) : null}
+        <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
         <Switch>
           <Route exact path="/shop" component={Shop} />
           <Route path="/" component={Home} />
