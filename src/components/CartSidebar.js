@@ -13,10 +13,12 @@ function CartSidebar(props) {
       //Starts animation
       sidebar.classList.add('hidden');
       //Hides bar upon completion of the animation
-      sidebar.addEventListener('animationend', function () {
-        hideCartSidebar();
-      });
+      sidebar.addEventListener('animationend', hideCartSidebar);
     });
+
+    return () => {
+      sidebar.removeEventListener('animationend', hideCartSidebar);
+    };
   }, []);
 
   return (
