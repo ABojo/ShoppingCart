@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import CartSidebar from './components/CartSidebar';
 
 function App() {
-  const [cartCount, setCartCount] = useState(8);
+  const [cartCount, setCartCount] = useState(0);
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
 
   const showCartSideBar = () => {

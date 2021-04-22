@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 function Navbar(props) {
   const { cartCount, showCartSidebar } = props;
   const linkStyles = { textDecoration: 'none', color: 'white' };
+
   return (
     <div className="navbar">
       <h1 className="nav-heading">Shop Name</h1>
@@ -27,7 +28,7 @@ function Navbar(props) {
         </Link>
 
         <h1 className="nav-cart" onClick={showCartSidebar}>
-          <p className="nav-cart__count">{cartCount}</p>
+          {cartCount ? <p className="nav-cart__count">{cartCount}</p> : ''}
           <i className="fas fa-shopping-cart"></i>
         </h1>
       </div>
