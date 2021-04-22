@@ -17,7 +17,9 @@ function App() {
 
   return (
     <React.Fragment>
-      {cartSidebarShown ? <CartSidebar /> : null}
+      {cartSidebarShown ? (
+        <CartSidebar hideCartSidebar={hideCartSidebar} />
+      ) : null}
       <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
     </React.Fragment>
   );
