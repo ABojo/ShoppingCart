@@ -25,10 +25,12 @@ function App() {
           <CartSidebar hideCartSidebar={hideCartSidebar} />
         ) : null}
         <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
-        <Switch>
-          <Route exact path="/shop" component={Shop} />
-          <Route path="/" component={Home} />
-        </Switch>
+        <div className="main-content">
+          <Switch>
+            <Route exact path="/shop" component={Shop} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </div>
       </BrowserRouter>
     </React.Fragment>
   );
