@@ -4,13 +4,15 @@ import { useEffect } from 'react';
 function CartSidebar(props) {
   const { hideCartSidebar } = props;
 
-  //Adds event listeners so the slide away animation can complete before hiding the sidebar
+  //For smooth transition off of page
   useEffect(() => {
     const sidebarClose = document.querySelector('.cart-sidebar__close');
     const sidebar = document.querySelector('.cart-sidebar');
 
     sidebarClose.addEventListener('click', function () {
+      //Starts animation
       sidebar.classList.add('hidden');
+      //Hides bar upon completion of the animation
       sidebar.addEventListener('animationend', function () {
         hideCartSidebar();
       });
