@@ -27,9 +27,14 @@ function App() {
     );
 
     if (productIndex > -1) {
-      newCart[productIndex].quantity += parseInt(quantity);
+      newCart[productIndex].quantity += quantity;
+      newCart[productIndex].total += quantity * newCart[productIndex].price;
     } else {
-      newCart.push({ ...product, quantity: parseInt(quantity) });
+      newCart.push({
+        ...product,
+        quantity: quantity,
+        total: quantity * product.price,
+      });
     }
 
     setCart(newCart);

@@ -24,7 +24,7 @@ function ShopItem(props) {
         type="number"
         value={quantity}
         min="1"
-        onChange={(e) => setQuantity(e.target.value)}
+        onChange={(e) => setQuantity(parseInt(e.target.value))}
       />
     </div>
   );
