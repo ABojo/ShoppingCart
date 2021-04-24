@@ -8,7 +8,6 @@ import CartSidebar from './components/CartSidebar';
 import productList from './utils/products';
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
   const [products, setProducts] = useState(productList);
   const [cart, setCart] = useState([]);
@@ -43,7 +42,7 @@ function App() {
         {cartSidebarShown ? (
           <CartSidebar hideCartSidebar={hideCartSidebar} />
         ) : null}
-        <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
+        <Navbar cartCount={cart.length} showCartSidebar={showCartSideBar} />
         <div className="main-content">
           <Switch>
             <Route

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/shopStyles.css';
+import React, { useState } from 'react';
 
 function ShopItem(props) {
   const { product, addToCart } = props;
