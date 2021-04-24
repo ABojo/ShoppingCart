@@ -29,7 +29,11 @@ function App() {
         <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
         <div className="main-content">
           <Switch>
-            <Route exact path="/shop" component={Shop} />
+            <Route
+              exact
+              path="/shop"
+              render={() => <Shop products={products} />}
+            />
             <Route path="/" component={Home} />
           </Switch>
         </div>
