@@ -11,6 +11,7 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
   const [products, setProducts] = useState(productList);
+  const [cart, setCart] = useState([]);
 
   const showCartSideBar = () => {
     setCartSidebarShown(true);
@@ -18,6 +19,22 @@ function App() {
 
   const hideCartSidebar = () => {
     setCartSidebarShown(false);
+  };
+
+  const addToCart = (product, quantity) => {
+    const newCart = [...cart];
+    const productIndex = newCart.findIndex(
+      (item) => item.name === product.name
+    );
+
+    if (productIndex > -1) {
+      newCart[productIndex].quantity += parseInt(quantity);
+    } else {
+      newCart.push({ ...product, quantity: parseInt(quantity) });
+    }
+
+    setCart(newCart);
+    console.log(cart);
   };
 
   return (
@@ -32,7 +49,7 @@ function App() {
             <Route
               exact
               path="/shop"
-              render={() => <Shop products={products} />}
+              render={() => <Shop products={products} addToCart={addToCart} />}
             />
             <Route path="/" component={Home} />
           </Switch>
