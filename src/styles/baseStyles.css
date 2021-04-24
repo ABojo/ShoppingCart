@@ -17,3 +17,42 @@ body {
 .main-content {
   padding: 0 4rem;
 }
+
+.message {
+  background-color: #2ecc71;
+  color: white;
+  font-size: 1.5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: notify 4s;
+  z-index: 10;
+  width: 100%;
+  max-width: 45rem;
+}
+
+@keyframes notify {
+  0% {
+    top: -20%;
+  }
+
+  37.5% {
+    top: 10%;
+  }
+
+  50% {
+    top: 10%;
+  }
+
+  67.5% {
+    top: 10%;
+  }
+
+  100% {
+    top: -20%;
+  }
+}

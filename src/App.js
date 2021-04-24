@@ -6,20 +6,13 @@ import Shop from './components/Shop';
 import Navbar from './components/Navbar';
 import CartSidebar from './components/CartSidebar';
 import productList from './utils/products';
+import notify from './utils/notify';
 
 function App() {
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
   const [products, setProducts] = useState(productList);
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    if (cart.length > 0) {
-      let acc = 0;
-      cart.forEach((el) => (acc += el.quantity));
-      setCartCount(acc);
-    }
-  });
 
   const showCartSideBar = () => {
     setCartSidebarShown(true);
@@ -45,8 +38,17 @@ function App() {
     }
 
     setCart(newCart);
+    notify(`Added (${quantity}) ${product.name} to your cart`);
     console.log(cart);
   };
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      let acc = 0;
+      cart.forEach((el) => (acc += el.quantity));
+      setCartCount(acc);
+    }
+  }, [cart]);
 
   return (
     <React.Fragment>
