@@ -3,26 +3,29 @@
   font-size: 5rem;
   font-weight: 500;
   margin-bottom: 5rem;
+  color: white;
 }
 
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 5rem;
 }
 
 .shop-item {
-  height: 100%;
-  width: 100%;
-  padding: 2rem;
   border-radius: 1rem;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: rgb(60, 60, 60);
+  color: white;
 }
 
 .shop-item__image {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   object-fit: contain;
-  height: 50%;
+  height: 30rem;
 }
 
 .shop-item__name {

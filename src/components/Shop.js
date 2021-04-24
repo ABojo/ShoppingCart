@@ -33,12 +33,6 @@ function Home(props) {
           <p className="shop-item__price">$59.99</p>
           <button className="shop-item__atc">Add To Cart</button>
         </div>
-        <div className="shop-item">
-          <img className="shop-item__image" alt={'fire red'} src={ssb}></img>
-          <h1 className="shop-item__name">SSB Ultimate</h1>
-          <p className="shop-item__price">$39.99</p>
-          <button className="shop-item__atc">Add To Cart</button>
-        </div>
       </div>
     </React.Fragment>
   );

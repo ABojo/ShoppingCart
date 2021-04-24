@@ -3,6 +3,7 @@ const textStyles = {
   fontWeight: '300',
   textAlign: 'center',
   textTransform: 'uppercase',
+  color: 'white',
 };
 
 function Home() {
