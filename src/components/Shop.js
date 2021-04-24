@@ -10,7 +10,7 @@ function Shop(props) {
       <h1 className="shop-heading">Shop</h1>
       <div className="shop-grid">
         {products.map((product) => (
-          <ShopItem product={product} addToCart={addToCart} />
+          <ShopItem product={product} addToCart={addToCart} key={product.id} />
         ))}
       </div>
     </React.Fragment>

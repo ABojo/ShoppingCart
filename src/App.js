@@ -22,9 +22,7 @@ function App() {
 
   const addToCart = (product, quantity) => {
     const newCart = [...cart];
-    const productIndex = newCart.findIndex(
-      (item) => item.name === product.name
-    );
+    const productIndex = newCart.findIndex((item) => item.id === product.id);
 
     if (productIndex > -1) {
       newCart[productIndex].quantity += quantity;
