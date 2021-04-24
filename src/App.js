@@ -11,6 +11,15 @@ function App() {
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
   const [products, setProducts] = useState(productList);
   const [cart, setCart] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      let acc = 0;
+      cart.forEach((el) => (acc += el.quantity));
+      setCartCount(acc);
+    }
+  });
 
   const showCartSideBar = () => {
     setCartSidebarShown(true);
@@ -45,7 +54,7 @@ function App() {
         {cartSidebarShown ? (
           <CartSidebar hideCartSidebar={hideCartSidebar} />
         ) : null}
-        <Navbar cartCount={cart.length} showCartSidebar={showCartSideBar} />
+        <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
         <div className="main-content">
           <Switch>
             <Route
