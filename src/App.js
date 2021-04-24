@@ -5,10 +5,12 @@ import Home from './components/Home';
 import Shop from './components/Shop';
 import Navbar from './components/Navbar';
 import CartSidebar from './components/CartSidebar';
+import productList from './utils/products';
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
+  const [products, setProducts] = useState(productList);
 
   const showCartSideBar = () => {
     setCartSidebarShown(true);

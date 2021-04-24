@@ -5,7 +5,8 @@ import halo from '../img/halo.png';
 import bo2 from '../img/bo2.jpg';
 import ssb from '../img/ssb.jpg';
 
-function Home(props) {
+function Shop(props) {
+  console.log(props);
   return (
     <React.Fragment>
       <h1 className="shop-heading">Shop</h1>
@@ -53,4 +54,4 @@ function Home(props) {
   );
 }
 
-export default Home;
+export default Shop;
