@@ -13,6 +13,7 @@ function App() {
   const [products] = useState(productList);
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
 
   const showCartSideBar = () => {
     setCartSidebarShown(true);
@@ -53,6 +54,14 @@ function App() {
     }
   }, [cart]);
 
+  useEffect(() => {
+    if (cart.length > 0) {
+      let acc = 0;
+      cart.forEach((el) => (acc += el.total));
+      setCartTotal(acc);
+    }
+  }, [cart]);
+
   return (
     <React.Fragment>
       <BrowserRouter>
@@ -61,6 +70,7 @@ function App() {
             hideCartSidebar={hideCartSidebar}
             cart={cart}
             cartCount={cartCount}
+            cartTotal={cartTotal}
           />
         ) : null}
         <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />

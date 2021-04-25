@@ -2,7 +2,7 @@ import styles from '../styles/cartSidebarStyles.css';
 import { useEffect } from 'react';
 
 function CartSidebar(props) {
-  const { hideCartSidebar, cart, cartCount } = props;
+  const { hideCartSidebar, cart, cartCount, cartTotal } = props;
 
   //For smooth transition off of page
   useEffect(() => {
@@ -28,7 +28,7 @@ function CartSidebar(props) {
       </h1>
       <div className="cart-sidebar__info">
         <h1 className="cart-sidebar__title">Your Cart ({cartCount})</h1>
-        <h1 className="cart-sidebar__total">$200.29</h1>
+        <h1 className="cart-sidebar__total">${cartTotal}</h1>
       </div>
       {cart.map((product) => (
         <div className="cart-sidebar__product">
