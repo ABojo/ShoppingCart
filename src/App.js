@@ -42,15 +42,19 @@ function App() {
   };
 
   const addToCartAndNotify = (product, quantity) => {
-    addToCart(product, quantity);
-    notify(`Added ${product.name} (${quantity}) to your cart`);
+    if (!isNaN(quantity) && quantity > 0) {
+      addToCart(product, quantity);
+      notify(`Added ${product.name} (${quantity}) to your cart`);
+    } else {
+      notify('The quantity must be a number greater than one!');
+    }
   };
 
   const changeQuantity = (product, newQuantity) => {
     const newCart = [...cart];
     const index = newCart.findIndex((item) => item.id === product.id);
 
-    if (newQuantity === 0) {
+    if (newQuantity === 0 || isNaN(newQuantity)) {
       newCart.splice(index, 1);
     } else {
       newCart[index].quantity = newQuantity;
