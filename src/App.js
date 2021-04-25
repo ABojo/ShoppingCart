@@ -44,9 +44,9 @@ function App() {
   const addToCartAndNotify = (product, quantity) => {
     if (!isNaN(quantity) && quantity > 0) {
       addToCart(product, quantity);
-      notify(`Added ${product.name} (${quantity}) to your cart`);
+      notify(true, `Added ${product.name} (${quantity}) to your cart`);
     } else {
-      notify('The quantity must be a number greater than one!');
+      notify(false, 'The quantity must be a number greater than one!');
     }
   };
 
