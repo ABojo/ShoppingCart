@@ -46,20 +46,30 @@ function App() {
     notify(`Added ${product.name} (${quantity}) to your cart`);
   };
 
-  useEffect(() => {
-    if (cart.length > 0) {
-      let acc = 0;
-      cart.forEach((el) => (acc += el.quantity));
-      setCartCount(acc);
+  const changeQuantity = (product, newQuantity) => {
+    const newCart = [...cart];
+    const index = newCart.findIndex((item) => item.id === product.id);
+
+    if (newQuantity === 0) {
+      newCart.splice(index, 1);
+    } else {
+      newCart[index].quantity = newQuantity;
+      newCart[index].total = newQuantity * newCart[index].price;
     }
+
+    setCart(newCart);
+  };
+
+  useEffect(() => {
+    let acc = 0;
+    cart.forEach((el) => (acc += el.quantity));
+    setCartCount(acc);
   }, [cart]);
 
   useEffect(() => {
-    if (cart.length > 0) {
-      let acc = 0;
-      cart.forEach((el) => (acc += el.total));
-      setCartTotal(acc);
-    }
+    let acc = 0;
+    cart.forEach((el) => (acc += el.total));
+    setCartTotal(acc);
   }, [cart]);
 
   return (
@@ -71,6 +81,7 @@ function App() {
             cart={cart}
             cartCount={cartCount}
             cartTotal={cartTotal}
+            changeQuantity={changeQuantity}
           />
         ) : null}
         <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />

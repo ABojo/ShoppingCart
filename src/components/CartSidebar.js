@@ -2,14 +2,16 @@ import styles from '../styles/cartSidebarStyles.css';
 import { useEffect } from 'react';
 
 function CartSidebar(props) {
-  const { hideCartSidebar, cart, cartCount, cartTotal } = props;
+  const { hideCartSidebar, cart, cartCount, cartTotal, changeQuantity } = props;
 
   //For smooth transition off of page
   useEffect(() => {
-    const sidebarClose = document.querySelector('.cart-sidebar__close');
+    const continueShopping = document.querySelector(
+      '.cart-sidebar__button.continue'
+    );
     const sidebar = document.querySelector('.cart-sidebar');
 
-    sidebarClose.addEventListener('click', function () {
+    continueShopping.addEventListener('click', function () {
       //Starts animation
       sidebar.classList.add('hidden');
       //Hides bar upon completion of the animation
@@ -23,9 +25,6 @@ function CartSidebar(props) {
 
   return (
     <div className="cart-sidebar">
-      <h1 className="cart-sidebar__close">
-        <i className="fas fa-times"></i>
-      </h1>
       <div className="cart-sidebar__info">
         <h1 className="cart-sidebar__title">Your Cart ({cartCount})</h1>
         <h1 className="cart-sidebar__total">${cartTotal.toFixed(2)}</h1>
@@ -44,7 +43,9 @@ function CartSidebar(props) {
                 className="cart-sidebar__product__quantity"
                 type="number"
                 value={product.quantity}
-                min="1"
+                onChange={(e) =>
+                  changeQuantity(product, parseInt(e.target.value))
+                }
               />
             </div>
           </div>
@@ -54,10 +55,13 @@ function CartSidebar(props) {
         </div>
       ))}
       {cartCount ? (
-        <button className="cart-sidebar__checkout">Checkout</button>
+        <button className="cart-sidebar__button checkout">Checkout</button>
       ) : (
         ''
       )}
+      <button className="cart-sidebar__button continue">
+        Continue Shopping
+      </button>
     </div>
   );
 }
