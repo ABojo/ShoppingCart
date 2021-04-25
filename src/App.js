@@ -61,15 +61,11 @@ function App() {
   };
 
   useEffect(() => {
-    let acc = 0;
-    cart.forEach((el) => (acc += el.quantity));
-    setCartCount(acc);
+    setCartCount(cart.reduce((acc, cv) => acc + cv.quantity, 0));
   }, [cart]);
 
   useEffect(() => {
-    let acc = 0;
-    cart.forEach((el) => (acc += el.total));
-    setCartTotal(acc);
+    setCartTotal(cart.reduce((acc, cv) => acc + cv.total, 0));
   }, [cart]);
 
   return (
