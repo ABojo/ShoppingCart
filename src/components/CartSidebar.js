@@ -28,7 +28,7 @@ function CartSidebar(props) {
       </h1>
       <div className="cart-sidebar__info">
         <h1 className="cart-sidebar__title">Your Cart ({cartCount})</h1>
-        <h1 className="cart-sidebar__total">${cartTotal}</h1>
+        <h1 className="cart-sidebar__total">${cartTotal.toFixed(2)}</h1>
       </div>
       {cart.map((product) => (
         <div className="cart-sidebar__product">
@@ -48,7 +48,9 @@ function CartSidebar(props) {
               />
             </div>
           </div>
-          <h1 className="cart-sidebar__product__total">${product.total}</h1>
+          <h1 className="cart-sidebar__product__total">
+            ${product.total.toFixed(2)}
+          </h1>
         </div>
       ))}
       {cartCount ? (
