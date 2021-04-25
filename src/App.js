@@ -10,7 +10,7 @@ import notify from './utils/notify';
 
 function App() {
   const [cartSidebarShown, setCartSidebarShown] = useState(false);
-  const [products, setProducts] = useState(productList);
+  const [products] = useState(productList);
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
@@ -38,8 +38,11 @@ function App() {
     }
 
     setCart(newCart);
-    notify(`Added (${quantity}) ${product.name} to your cart`);
-    console.log(cart);
+  };
+
+  const addToCartAndNotify = (product, quantity) => {
+    addToCart(product, quantity);
+    notify(`Added ${product.name} (${quantity}) to your cart`);
   };
 
   useEffect(() => {
@@ -54,7 +57,11 @@ function App() {
     <React.Fragment>
       <BrowserRouter>
         {cartSidebarShown ? (
-          <CartSidebar hideCartSidebar={hideCartSidebar} />
+          <CartSidebar
+            hideCartSidebar={hideCartSidebar}
+            cart={cart}
+            cartCount={cartCount}
+          />
         ) : null}
         <Navbar cartCount={cartCount} showCartSidebar={showCartSideBar} />
         <div className="main-content">
@@ -62,7 +69,9 @@ function App() {
             <Route
               exact
               path="/shop"
-              render={() => <Shop products={products} addToCart={addToCart} />}
+              render={() => (
+                <Shop products={products} addToCart={addToCartAndNotify} />
+              )}
             />
             <Route path="/" component={Home} />
           </Switch>
