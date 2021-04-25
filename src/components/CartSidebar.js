@@ -30,7 +30,7 @@ function CartSidebar(props) {
         <h1 className="cart-sidebar__total">${cartTotal.toFixed(2)}</h1>
       </div>
       {cart.map((product) => (
-        <div className="cart-sidebar__product">
+        <div className="cart-sidebar__product" key={product.id}>
           <div className="cart-sidebar__product-main">
             <img
               className="cart-sidebar__product__image"
